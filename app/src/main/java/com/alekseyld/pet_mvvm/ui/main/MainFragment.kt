@@ -1,32 +1,31 @@
 package com.alekseyld.pet_mvvm.ui.main
 
-import androidx.lifecycle.ViewModelProviders
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.LifecycleOwner
 import com.alekseyld.pet_mvvm.R
+import com.alekseyld.pet_mvvm.databinding.MainFragmentBinding
+import com.alekseyld.pet_mvvm.ui.base.BaseFragment
+import org.koin.android.scope.currentScope
 
-class MainFragment : Fragment() {
+class MainFragment : BaseFragment<MainViewModel, MainFragmentBinding>() {
 
     companion object {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    override fun getLayoutId(): Int = R.layout.main_fragment
+    override fun currentScope() = currentScope
+    override fun lifecycleOwner() = this
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+    override fun bindViewModel() {
+
+        binding.viewModel = viewModel
+
+        subscribeUi()
+
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun subscribeUi() {
+
     }
 
 }

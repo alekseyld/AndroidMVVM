@@ -9,8 +9,6 @@ import org.koin.dsl.module
 val appModule = module {
 
 
-
-
     scope(named<MainFragment>()) {
         viewModel { MainViewModel() }
     }

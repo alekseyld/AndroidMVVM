@@ -4,5 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.alekseyld.pet_mvvm.ui.base.BaseViewModel
 
 class MainViewModel : BaseViewModel() {
-    // TODO: Implement the ViewModel
+
+    val text = "12121212"
+
 }

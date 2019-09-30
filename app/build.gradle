@@ -12,13 +12,16 @@ android {
 
     defaultConfig {
 
-        applicationId defaultConfig.applicationId
-        minSdkVersion defaultConfig.minSdkVersion
-        targetSdkVersion defaultConfig.targetSdkVersion
-        versionCode defaultConfig.versionCode
-        versionName defaultConfig.versionName
+        applicationId rootProject.defaultConfig.applicationId
+        minSdkVersion rootProject.defaultConfig.minSdkVersion
+        targetSdkVersion rootProject.defaultConfig.targetSdkVersion
+        versionCode rootProject.defaultConfig.versionCode
+        versionName rootProject.defaultConfig.versionName
 
-        testInstrumentationRunner defaultConfig.testInstrumentationRunner
+        testInstrumentationRunner rootProject.defaultConfig.testInstrumentationRunner
+
+        resValue("string", "app_name", rootProject.appName)
+
     }
     buildTypes {
         release {
@@ -43,8 +46,8 @@ kapt {
 dependencies {
 
     testImplementation libs.junit
-    testImplementation libs.mockk
     testImplementation libs.robolectric
+    testImplementation libs.mockk
 
     androidTestImplementation libs.androidxTestRunner
     androidTestImplementation libs.espressoCore

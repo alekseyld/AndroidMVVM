@@ -10,12 +10,12 @@ android {
 
 
     defaultConfig {
-        minSdkVersion defaultConfig.minSdkVersion
-        targetSdkVersion defaultConfig.targetSdkVersion
-        versionCode defaultConfig.versionCode
-        versionName defaultConfig.versionName
+        minSdkVersion rootProject.defaultConfig.minSdkVersion
+        targetSdkVersion rootProject.defaultConfig.targetSdkVersion
+        versionCode rootProject.defaultConfig.versionCode
+        versionName rootProject.defaultConfig.versionName
 
-        testInstrumentationRunner defaultConfig.testInstrumentationRunner
+        testInstrumentationRunner rootProject.defaultConfig.testInstrumentationRunner
         consumerProguardFiles 'consumer-rules.pro'
     }
 
